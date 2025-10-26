@@ -37,3 +37,11 @@ resource "aws_subnet" "public_subnet2" {
     }
 }
 
+resource "aws_internet_gateway" "gw" {
+    vpc_id = aws_default_vpc.default.id
+
+    tags = {
+        Name = "VPC Internet Gateway"
+    }
+
+}
