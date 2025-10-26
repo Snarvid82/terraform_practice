@@ -97,6 +97,62 @@ resource "aws_subnet" "db_private_subnet2" {
 # Create security groups
 
 
+# Create public route table
+resource "aws_route_table" "public" {
+    vpc_id = aws_default_vpc.default.id
+    route {
+        cidr_block = "0.0.0.0/0"
+        gateway_id = aws_internet_gateway.gw.id
+    }
+    tags = {
+        Name = "Public route table"
+    }
+}
+
+# Create public route association subnet1
+resource "aws_route_table_association" "public1" {
+    subnet_id = aws_subnet.public_subnet1.id
+    route_table_id = aws_route_table.public.id
+}
+
+# Create public route association subnet2
+resource "aws_route_table_association" "public2" {
+    subnet_id = aws_subnet.public_subnet2.id
+    route_table_id = aws_route_table.public.id
+}
+
+# Create private route table
+resource "aws_route_table" "private" {
+    vpc_id = aws_default_vpc.default.id
+    tags = {
+        Name = "Private route table"
+    }
+}
+
+# Create private route association app subnet1
+resource "aws_route_table_association" "private1" {
+    subnet_id = aws_subnet.app_private_subnet1.id
+    route_table_id = aws_route_table.private.id
+}
+
+# Create private route association app subnet2
+resource "aws_route_table_association" "private2" {
+    subnet_id = aws_subnet.app_private_subnet2.id
+    route_table_id = aws_route_table.private.id
+}
+
+# Create private route association db subnet1
+resource "aws_route_table_association" "privatedb1" {
+    subnet_id = aws_subnet.db_private_subnet1.id
+    route_table_id = aws_route_table.private.id
+}
+
+# Create private route association db subnet2
+resource "aws_route_table_association" "privatedb2" {
+    subnet_id = aws_subnet.db_private_subnet2.id
+    route_table_id = aws_route_table.private.id
+}
+
 # Create private route table
 
 
