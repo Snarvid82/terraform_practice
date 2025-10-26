@@ -12,13 +12,9 @@ Then I keep building:
 
 
 
-VPC
+VPC: default VPC
 
 
 
-Subnets
-
-
-
-
+Subnets: 2 public subnets in different availability zones
 
