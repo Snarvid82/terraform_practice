@@ -10,3 +10,30 @@ resource "aws_default_vpc" "default" {
         Name = "Default VPC"
     }
 }
+
+# Create Public Subnet 1
+resource "aws_subnet" "public_subnet1" {
+    vpc_id = aws_default_vpc.default.id
+    cidr_block = "172.31.1.0/24"
+    availability_zone = "eu-north-1a"
+    map_public_ip_on_launch = true
+
+    tags = {
+        Name = "Public Subnet1"
+
+    }
+}
+
+# Create Public Subnet 2
+resource "aws_subnet" "public_subnet2" {
+    vpc_id = aws_default_vpc.default.id
+    cidr_block = "172.31.2.0/24"
+    availability_zone = "eu-north-1b"
+    map_public_ip_on_launch = true
+
+    tags = {
+        Name = "Public Subnet2"
+
+    }
+}
+
