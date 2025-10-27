@@ -20,3 +20,7 @@ Subnets: 2 public subnets in different availability zones
 
 Created 2 private subnets, 1 for app and 1 for database in 2 different AZs.
 
+
+
+Route tables and associations for the private subnets and the public subnets
+
