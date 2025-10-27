@@ -73,7 +73,7 @@ resource "aws_subnet" "app_private_subnet2" {
 resource "aws_subnet" "db_private_subnet1" {
     vpc_id = aws_default_vpc.default.id
     cidr_block = "172.31.5.0/24"
-    availability_zone = "eu-north-1b"
+    availability_zone = "eu-north-1a"
     tags = {
         Name = "Private DB Subnet 1"
     }
