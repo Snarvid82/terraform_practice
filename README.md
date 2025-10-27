@@ -24,3 +24,7 @@ Created 2 private subnets, 1 for app and 1 for database in 2 different AZs.
 
 Route tables and associations for the private subnets and the public subnets
 
+
+
+EC2: created EC2 instance for app in private subnet 1 and 2
+
